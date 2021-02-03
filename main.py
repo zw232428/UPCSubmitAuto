@@ -18,9 +18,6 @@ signInResponse= conn.post(
     data= signIn
 )
 
-rjson = json.loads(signInResponse.text)
-print(rjson['m'])
-
 historyResponse = conn.get(
     url="https://app.upc.edu.cn/ncov/wap/default/index?from=history",
     data={'from': 'history'}
@@ -57,7 +54,3 @@ saveResponse = conn.post(
     #headers=HEADERS,
     data = dic
 )
-
-saveJson = json.loads(saveResponse.text)
-print(saveJson['m'])
-
