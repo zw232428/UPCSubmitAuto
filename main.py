@@ -51,6 +51,7 @@ dic['geo_api_info'] = old_geo_api_info
 
 saveResponse = conn.post(
     url="https://app.upc.edu.cn/ncov/wap/default/save",
-    #headers=HEADERS,
     data = dic
 )
+
+print(saveResponse.text)
