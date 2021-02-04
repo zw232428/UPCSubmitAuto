@@ -6,7 +6,7 @@ name: Daily Check In
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
    schedule:
-    - cron: '55 0 * * *'
+    - cron: '0 2 * * *'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -26,9 +26,7 @@ jobs:
     - name: '[Prepare] Install Dependencies'
       run: |
         python -m pip install --upgrade pip
-        python -m pip install --upgrade json
-        python -m pip install --upgrade lxml.html
-        python -m pip install --upgrade re
+        python -m pip install --upgrade lxml
         python -m pip install --upgrade requests
         # 安装需要的python库
     - name: '[Final Main] Check In'
