@@ -3,10 +3,11 @@ import requests
 import json
 import lxml.html
 import re
-import configparser
+
+if __name__ == '__main__':
 ###
-signIn = {'username': os.environ["USERNAME"], #学号
-          'password': os.environ["PASSWORD"]} #登陆密码
+    signIn = {'username': os.environ["USERNAME"], #学号
+              'password': os.environ["PASSWORD"]} #登陆密码
 ###
 headers = {
     'User-Agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.146 Mobile Safari/537.36',
