@@ -11,7 +11,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  sign_in:
+  submit:
     runs-on: ubuntu-latest
     # 定义系统类型，这里选择Ubuntu
     steps:
@@ -29,7 +29,10 @@ jobs:
         python -m pip install --upgrade lxml
         python -m pip install --upgrade requests
         # 安装需要的python库
-    - name: '[Final Main] Check In'
+    - name: '[Final Main] Working'
+      env:
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }} 
       run: |
         python main.py
         # 执行代码
