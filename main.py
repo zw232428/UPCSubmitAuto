@@ -4,12 +4,9 @@ import json
 import lxml.html
 import re
 
-if __name__ == '__main__':
-###
-    signIn = {'username': os.environ["USERNAME"], #学号
-              'password': os.environ["PASSWORD"]} #登陆密码
-###
-print(type(os.environ["USERNAME"]))
+signIn = {'username': os.environ["USERNAME"], #学号
+          'password': os.environ["PASSWORD"]} #登陆密码
+
 headers = {
     'User-Agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.146 Mobile Safari/537.36',
 }
@@ -19,13 +16,14 @@ signInResponse= conn.post(
     url="https://app.upc.edu.cn/uc/wap/login/check",
     headers=headers,
     data= signIn, 
-    timeout=20
+    timeout=10
 )
-print(signInResponse.text)
+
 historyResponse = conn.get(
     url="https://app.upc.edu.cn/ncov/wap/default/index?from=history",
     headers=headers,
-    data={'from': 'history'}
+    data={'from': 'history'},
+    timeout=10
 )
 historyResponse.encoding = "UTF-8"
 
@@ -57,7 +55,8 @@ dic['szgjcs'] = lastParam
 saveResponse = conn.post(
     url="https://app.upc.edu.cn/ncov/wap/default/save",
     headers=headers,
-    data = dic
+    data = dic,
+    timeout=10
 )
 
 saveJson = json.loads(saveResponse.text)
