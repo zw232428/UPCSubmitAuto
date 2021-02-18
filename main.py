@@ -59,5 +59,8 @@ saveResponse = conn.post(
     timeout=10
 )
 
+SCKEY = "SCT9114TelDEIWEKRH6LrCQrUacIeE8A"
+requests.post(f"https://sc.ftqq.com/{SCKEY}.send", data={"Test": "Github Action执行完成"})
+
 saveJson = json.loads(saveResponse.text)
 print(saveJson['m'])
