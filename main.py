@@ -60,7 +60,7 @@ saveResponse = conn.post(
 )
 
 user = signIn['username']
-SCKEY = "SCT9114TelDEIWEKRH6LrCQrUacIeE8A"
+SCKEY = "SCT9114THS8nJuPDCyPiSbpgtkEfokJT"
 data = {"text": f"{user}的疫情防疫", "desp": "Github Action执行完成"}
 requests.post(f"https://sctapi.ftqq.com/{SCKEY}.send", data={"疫情防疫": "Github Action执行完成"})
 
