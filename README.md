@@ -1,4 +1,8 @@
-# UPC Epidemic Auto-Submit
-Automatically Submiting Epidemic Information for UPC students, Based On The Last Reported Information. Note: You Should report it yourself while your information has changed. 
+# UPC Epidemic Auto-Submit Based On The Last Reported Information
+
+# The method for sending message:
+
+1. https://qmsg.zendee.cn/
+2. https://sc.ftqq.com/9.version
 
 
