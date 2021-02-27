@@ -59,10 +59,17 @@ saveResponse = conn.post(
     timeout=10
 )
 
-user = signIn['username']
-SCKEY = "SCT9114THS8nJuPDCyPiSbpgtkEfokJT"
-data = {"text": f"{user}的疫情防疫", "desp": "Github Action执行完成"}
-requests.post(f"https://sctapi.ftqq.com/{SCKEY}.send", data = data)
-
 saveJson = json.loads(saveResponse.text)
 print(saveJson['m'])
+
+def send_message(message):
+    user = signIn['username']
+    SCKEY = "SCT9114THS8nJuPDCyPiSbpgtkEfokJT"
+    data = {"text": f"{user}的: {message}", "desp": ""}
+    requests.post(f"https://sctapi.ftqq.com/{SCKEY}.send", data = data)
+    
+
+if saveJson['m'] in ['操作成功', '今天已经填报了']:
+    pass
+else:
+    send_message(saveJson['m'])
