@@ -68,10 +68,11 @@ print(saveJson['m'])
 def send_message(message):
     user = signIn['username']
     SCKEY = "SCT9114THS8nJuPDCyPiSbpgtkEfokJT"
-    data = {"text": f"{user}的疫情防疫", "desp": message}
+    data = {"text": f"{user}的: {message}", "desp": ""}
     requests.post(f"https://sctapi.ftqq.com/{SCKEY}.send", data = data)
     
-if saveJson['m'] != '今天已经填报了':
-    send_message('执行完成')
-elif saveJson['m'] == '今天已经填报了':
-    send_message('今天已经填报了')
+
+if saveJson['m'] in ['操作成功', '今天已经填报了']:
+    pass
+else:
+    send_message(saveJson['m'])
